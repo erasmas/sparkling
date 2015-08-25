@@ -521,18 +521,6 @@
                                  (s/take 3))
                              [1 2 3])))
 
-                    ;(testing
-                    ;  "take-ordered returns the first N elements of an RDD using the natural ordering"
-                    ;  (is (= (-> (s/parallelize c [[1 -1] [2 -2] [3 -3] [4 -4]])
-                    ;             (s/take-ordered 1))
-                    ;         [[1 -1]])))
-                    ;
-                    ;(testing
-                    ;  "take-ordered returns the first N elements of an RDD as defined by the specified comparator"
-                    ;  (is (= (-> (s/parallelize c [[1 -1] [2 -2] [3 -3] [4 -4]])
-                    ;             (s/take-ordered 1 (comparator (fn [[_ y1] [_ y2]] (< y1 y2)))))
-                    ;         [[4 -4]])))
-
                     (testing
                       "glom returns an RDD created by coalescing all elements within each partition into a list"
                       (is (equals-ignore-order? (-> (s/parallelize c [1 2 3 4 5 6 7 8 9 10] 2)
